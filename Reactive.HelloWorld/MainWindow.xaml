@@ -1,0 +1,26 @@
+﻿<Window x:Class="Reactive.HelloWorld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:helloWorld="clr-namespace:Reactive.HelloWorld"
+        Title="MainWindow" Height="350" Width="525" 
+        mc:Ignorable="d"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        d:DataContext ="{d:DesignInstance helloWorld:MainWindowViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0">Password:</Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Label Grid.Row="1" Grid.Column="0" >Confirm Password:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ConfirmedPassword, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding ChangePasswordCommand}">Ok</Button>
+    </Grid>
+</Window>
